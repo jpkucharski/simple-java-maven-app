@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Check Environment') {
+                steps {
+                    sh 'printenv'
+                }
+        }
         stage('Build') {
             steps {
                 echo 'Building the project... Skipping the TESTS!!!!'
