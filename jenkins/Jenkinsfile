@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Check Environment') {
+                steps {
+                    sh 'printenv'
+                }
+        }
         stage('AWS cred') {
             steps{
                 withCredentials([[
@@ -12,11 +17,6 @@ pipeline {
                     sh "aws ec2 describe-instances --region eu-central-1"
                 }
             }
-        }
-        stage('Check Environment') {
-                steps {
-                    sh 'printenv'
-                }
         }
         stage('Build') {
             steps {
