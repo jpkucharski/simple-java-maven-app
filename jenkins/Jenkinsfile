@@ -26,7 +26,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the project... Skipping the TESTS!!!!'
-                sh 'mvn clean'
+                sh 'mvn package'
             }
         }
         stage('Test') {
