@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Hello') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins', url: 'git@github.com:jpkucharski/simple-java-maven-app.git']])
+            }
+        }       
         stage('Check Environment') {
                 steps {
                     sh 'printenv'
