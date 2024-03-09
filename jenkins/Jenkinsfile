@@ -40,10 +40,9 @@ pipeline {
                 }
             }
         }
-        stage('Deliver') {
-            steps {
-                echo 'Delivering the project...!!!!'
-                sh './jenkins/scripts/deliver.sh'
+        stage('DeployToEC2'){
+            step{
+                sh 'echo ${version}'
             }
         }
     }
