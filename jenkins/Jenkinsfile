@@ -40,8 +40,8 @@ pipeline {
                 }
             }
         }
-        stage('DeployToEC2'){
-            step{
+        stage('DeployToEC2') {
+            steps{
                 sh 'echo ${version}'
             }
         }
